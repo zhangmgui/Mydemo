@@ -1,0 +1,24 @@
+#某个连接池的配置
+#driverClassName = com.mysql.jdbc.Driver
+#url = jdbc:mysql://172.16.0.148:3306/log_test?useUnicode=true&characterEncoding=utf8
+#username = test
+#password = 123.com
+driverClassName = com.microsoft.sqlserver.jdbc.SQLServerDriver
+url = jdbc:sqlserver://172.16.3.48;DatabaseName=bi
+username = bi_user
+password = b3lK1WccklVb2PPa
+initialSize = 2
+maxActive = 50
+minIdle = 1
+maxWait = 60000
+removeAbandoned = true
+removeAbandonedTimeout = 1800
+timeBetweenEvictionRunsMillis = 60000
+minEvictableIdleTimeMillis = 300000
+validationQuery = SELECT 1
+testWhileIdle = true
+testOnBorrow = false
+testOnReturn = false
+poolPreparedStatements = true
+maxPoolPreparedStatementPerConnectionSize = 50
+defaultAutoCommit = true

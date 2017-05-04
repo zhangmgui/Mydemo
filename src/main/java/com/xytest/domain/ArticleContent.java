@@ -13,7 +13,8 @@ public class ArticleContent {
     private String publishOrganization;
     private String articleNum;
     private String publishDate;
-    private String implementation_date;
+    private String implementationDate;
     private String textContent;
     private String policyArea;
+    private String modifydate;
 }
