@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas绘制弧线入门示例</title>
+</head>
+<body>
+<div style="width: 100px;height: 200px" >
+<!-- 添加canvas标签，并加上红色边框以便于在页面上查看 -->
+<canvas id="myCanvas" al width="500px" height="500px" style="border: 1px solid red;">
+    您的浏览器不支持canvas标签。
+</canvas>
+</div>
+
+<script type="text/javascript">
+    function drawRect(cxt) {
+        cxt.fillStyle = "#FF0000";
+        cxt.fillRect(10,10,50,50)
+    }
+    function drawLine(cxt) {
+        //设置弧线的颜色为蓝色
+        cxt.strokeStyle = "blue";
+        cxt.moveTo(10,10);
+        cxt.lineTo(150,50);
+        cxt.lineTo(10,50);
+        cxt.stroke();
+    }
+    function drawgrd(cxt) {
+        var grd=cxt.createLinearGradient(10,70,175,50);
+        grd.addColorStop(0,"#FF0000");
+        grd.addColorStop(1,"#00FF00");
+        cxt.fillStyle=grd;
+        cxt.fillRect(10,70,175,50);
+    }
+    function imagebg(cxt) {
+        var img=new Image();
+        img.src="/image/avatar.png";
+        img.onload = function () {
+            cxt.drawImage(img,110,100);
+        }
+    }
+    function drawCir(cxt,circle) {
+        cxt.beginPath();
+        cxt.strokeStyle = "#FF0000";
+        cxt.fillStyle="#FF0000";
+        //沿着坐标点(100,100)为圆心、半径为50px的圆的顺时针方向绘制弧线
+        cxt.arc(circle.x, circle.y, circle.r, 0, 2*Math.PI, false);
+         //按照指定的路径绘制弧线
+        cxt.stroke();
+        cxt.fill();
+    }
+    function draw(yes) {
+        //获取对应的CanvasRenderingContext2D对象(画笔)
+        var cxt = canvas.getContext("2d");
+        //开始一个新的绘制路径
+        var circle = {
+            x: 100,    //圆心的x轴坐标值
+            y: 350,    //圆心的y轴坐标值
+            r: 50      //圆的半径
+        };
+        if(yes){
+            imagebg(cxt);
+        }
+        if(yes){
+            drawRect(cxt);
+        }
+        if(yes){
+            drawLine(cxt);
+        }
+        if(yes){
+            drawgrd(cxt);
+        }
+        if(yes){
+            drawCir(cxt,circle);
+        }
+    }
+    //获取Canvas对象(画布)
+    var canvas = document.getElementById("myCanvas");
+    //简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误
+    if (!canvas.getContext) {
+    } else {
+        draw(true);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/jquery.1.11.3.min.js"></script>
+
+</head>
+<body>
+
+
+    <table style="height: 200px; width: 200px; border: 1px solid"; >
+        <tr>
+            <td >
+                <canvas id="canvasId" width="400px" height="300px" style="border: 1px solid red"; >
+            </canvas>
+            </td>
+            <td>二</td>
+            <td>三</td>
+            <td>四</td>
+        </tr>
+        <tr >
+            <td>六</td>
+            <td>六</td>
+            <td>六</td>
+            <td>六</td>
+        </tr>
+    </table>
+
+
+
+<script type="text/javascript">
+    //获取Canvas对象(画布)
+    var canvas = document.getElementById("canvasId");
+    //简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误
+    if(canvas.getContext){
+        //获取对应的CanvasRenderingContext2D对象(画笔)
+        var ctx = canvas.getContext("2d");
+        canvas.getFullYear()
+        //开始一个新的绘制路径
+        ctx.beginPath();
+        //设置弧线的颜色为蓝色
+        ctx.strokeStyle = "blue";
+        var circle = {
+            x : 100,    //圆心的x轴坐标值
+            y : 100,    //圆心的y轴坐标值
+            r : 50      //圆的半径
+        };
+        //以canvas中的坐标点(100,100)为圆心，绘制一个半径为50px的圆形
+        ctx.arc(circle.x, circle.y, circle.r, 0, Math.PI * 2, true);
+        //按照指定的路径绘制弧线
+        ctx.stroke();
+    }
+</script>
+</body>
+</html>
