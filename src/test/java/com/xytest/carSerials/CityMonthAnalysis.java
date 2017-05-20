@@ -5,7 +5,6 @@ import com.xytest.utils.CalculateUtils;
 import com.xytest.utils.DBConnection;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
-import org.junit.Test;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -17,10 +16,17 @@ import java.util.stream.Collectors;
 /**
  * Created by zhangmg on 2017/5/4.
  */
-public class growthRateMonth {
+public class CityMonthAnalysis {
     private static QueryRunner qr = new QueryRunner(DBConnection.getMasterDataSource());
-    @Test
-    public void calculate() throws SQLException {
+
+    //计算省份销量参数
+    private List<CarserialsAndSale> calculateProvince(List<CarserialsAndSale> allLogs){
+
+
+        return null;
+    }
+
+    public static List<CarserialsAndSale> getAllData() throws SQLException {
         //http://bbs.csdn.net/topics/390985921
         //List<Department>> collect = departments.stream().collect(Collectors.groupingBy(Department::getParentId));
         String sql = "select year_month,x_ways_id as csID,province,city,carserial,sales_volume from  city_sales_volume";
@@ -29,16 +35,7 @@ public class growthRateMonth {
         List<CarserialsAndSale> list1 = qr.query(sql, new BeanListHandler<CarserialsAndSale>(CarserialsAndSale.class));
         long end = System.currentTimeMillis();
         System.out.println("查询消耗："+((end - start) / (1000 * 60))+"秒");
-
-
-
-
-    }
-    //计算省份销量参数
-    private List<CarserialsAndSale> calculateProvince(List<CarserialsAndSale> allLogs){
-
-
-        return null;
+        return list1;
     }
     //计算城市销量参数
     private List<CarserialsAndSale> calculateCity(List<CarserialsAndSale> allLogs) {

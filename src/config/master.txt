@@ -1,12 +1,22 @@
 #某个连接池的配置
 #driverClassName = com.mysql.jdbc.Driver
 #url = jdbc:mysql://172.16.0.148:3306/log_test?useUnicode=true&characterEncoding=utf8
+#url = jdbc:mysql://172.16.0.148:3306/log_test?characterEncoding=utf8
 #username = test
 #password = 123.com
-driverClassName = com.microsoft.sqlserver.jdbc.SQLServerDriver
-url = jdbc:sqlserver://172.16.3.48;DatabaseName=bi
-username = bi_user
-password = b3lK1WccklVb2PPa
+
+
+driverClassName = net.sourceforge.jtds.jdbc.Driver
+url = jdbc:jtds:sqlserver://localhost:1433/bi
+username = sa
+password = abc.123
+
+
+#driverClassName = com.microsoft.sqlserver.jdbc.SQLServerDriver
+#url = jdbc:sqlserver://127.0.0.1;DatabaseName=bi
+#username = bi_user
+#password = b3lK1WccklVb2PPa
+
 initialSize = 2
 maxActive = 50
 minIdle = 1

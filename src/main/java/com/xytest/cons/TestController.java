@@ -31,8 +31,8 @@ public class TestController {
      @Qualifier("cacheSbean")*/
     @Resource(name = "cacheSbean")
     private CacheService cacheService;
-
-    private CacheService cacheService1;
+    @Resource(name = "cs")
+    private CacheService cs;
 
 
     @GetMapping("exit/{id}/{name}")
@@ -79,7 +79,7 @@ public class TestController {
     public void bTest() {
         List<ArticleContent> list = cacheService.getList();
         System.out.println(list);
-
+        cs.say();
         SpelExpressionParser parser = new SpelExpressionParser();
         HashMap<String, Integer> map = new HashMap<>();
         map.put("a", 1);

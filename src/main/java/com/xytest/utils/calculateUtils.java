@@ -1,6 +1,7 @@
 package com.xytest.utils;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 /**
  * Created by zhangmg on 2017/5/4.
@@ -82,5 +83,16 @@ public class CalculateUtils {
         BigDecimal b = new BigDecimal(Double.toString(v));
         BigDecimal one = new BigDecimal("1");
         return b.divide(one,scale,BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
+    /**
+     * 小数四舍五入
+     * DecimalFormat is a concrete subclass of NumberFormat that formats decimal numbers.
+     * @param d
+     * @return
+     */
+    public static String formatDouble4(double d) {
+       // DecimalFormat df = new DecimalFormat("#.00");
+        DecimalFormat df = new DecimalFormat("#");
+        return df.format(d);
     }
 }
