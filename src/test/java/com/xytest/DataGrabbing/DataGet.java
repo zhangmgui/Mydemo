@@ -19,6 +19,16 @@ import java.util.Set;
  * Created by zhangmg on 2017/4/27.
  */
 public class DataGet {
+    private String testurl ="http://www.baidu.com";
+    @Test
+    public void test1() throws IOException {
+        Document document = Jsoup.connect(testurl).get();
+        Elements a = document.getElementsByTag("a");
+        a.attr("url","随便来个url");
+        String url = a.attr("url");
+        System.out.println(url);
+    }
+
     private  String url = "http://www.autoinfo.org.cn/autoinfo_cn/channel/zcfg/hgzclist.html";
     /**
      * 获取指定HTML 文档指定的body

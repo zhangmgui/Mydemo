@@ -13,7 +13,7 @@ import java.util.List;
 @Service("cs")
 public class CacheService {
     @Cacheable(value = "ListCache", key = "'art_list'")
-    public List<ArticleContent> getList(){
+    public List<ArticleContent> getList() {
         ArticleContent articleContent = new ArticleContent();
         articleContent.setID(1);
         articleContent.setTitle("my title");
@@ -22,7 +22,8 @@ public class CacheService {
         System.out.println("cache no shoot");
         return list;
     }
-    public void say(){
+
+    public void say() {
         System.out.println("here is service");
     }
 }

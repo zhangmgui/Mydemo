@@ -24,4 +24,13 @@ public class CSADBase {
     private Integer province_thiscar_growth_index;
     private Integer province_allcar_platevolume_index;
     private Integer province_main_carCount_thisMonth;
+
+    public CSADBase() {
+    }
+
+    public CSADBase(Integer ID, Integer year_month, String carserial) {
+        this.ID = ID;
+        this.year_month = year_month;
+        this.carserial = carserial;
+    }
 }
